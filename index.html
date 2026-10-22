@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="nl" data-bs-theme="dark">
+    <head>
+<!-- Meta-tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Portfolio van Verone de Vries - Webdesign Les 22">
+        <meta name="author" content="Verone de Vries">
+        <title>Verone de Vries | Portfolio</title>
+
+<!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Goolge Font JetBrainsMono -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+<!-- Open Graph Socials -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Portfolio Verone de Vries">
+        <meta property="og:description" content="Bekijk de projecten op de portfoliowebsite van Verone de Vries.">
+        <meta property="og:url" content="https://veronedevries.nl">
+        <meta property="og:image" content="https://veronedevries.nl/images/share-preview.png">
+        <meta property="og:locale" content="nl_NL">
+
+<!-- CSS -->    
+        <style>
+            html {
+                scroll-behavior: smooth; /* vloeiend scrollen */
+            }
+
+            body {
+                font-family: "JetBrains Mono", monospace; /*Google Font*/
+                font-weight: 400; 
+            }
+
+            /* Bootstrap overschrijven met root i.p.v. .html werkt in elk doctype/ theme-dark ook in html-tag */
+            :root, [data-bs-theme="dark"] {
+                --bs-body-bg: #0a1128;        /* blauwe achtergrond */
+                --bs-body-color: #f7f4eb;     /* witte/crème tekst */
+            
+                --bs-primary: #ff007f;        /* roze titels/accenten */
+                --bs-secondary: #3f1a4d;      /* paarse elementen */
+                --bs-dark: #05050a;           /* zwarte vlakken */
+                --bs-info: #7b2cbf;           /* paars extra accent */
+            
+                --bs-link-color: #ff007f;
+                --bs-link-hover-color: #7b2cbf;
+            }
+
+            .border-tech {
+                border: 1px solid rgba(247, 244, 235, 0.15); /*transparante rand*/
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container-sm"> <!-- aparte div onder body: vanaf 576px 100% breed -->
+            <!-- Navigatiebalk -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-tech px-3" aria-label="Hoofdmenu">
+                <!-- expand=lg-scherm horizontaal dark=(overschreven)kleur bb-bt=lijn padding-x=3 aria=screenreader -->
+                <a class="navbar-brand fw-bold text-primary" href="https://www.masyntrix.com">[ Masyntrix ]</a>
+                <!-- brand=grotere tekst bold=vet primary=overschreven -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Navigatiemenu in- of uitklappen">
+                    <!-- JavaScript-aansturing buttonclick=#navbarMenu open/dicht-->
+                    <span class="navbar-toggler-icon"></span>
+                    <!-- hamburgermenu icoon -->
+                </button>
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <!-- collapse=uitklapbaar menu onder knop id= koppeling aan target -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- nav=zonder opsomming ms-auto=margin-start-auto rechts uitgelijnd -->
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                        <!-- actieve link met hover-effect -->
+                        <li class="nav-item"><a class="nav-link" href="overmij.html">Over mij</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+        <!-- Hero-sectie Header -->
+            <header class="py-5 border-bottom border-tech" style="background-color: var(--bs-dark);">
+<!--GRID--> <!-- py-5=boven/onder padding bb-bt=onderlijn style=CSS overschrijft Bootstrap -->
+<!--CONTAINER--><div class="container my-5">
+                    <!-- container=automatische zijmarges my-5=boven/ondermarge -->
+<!--ROW-->          <div class="row align-items-center">
+                        <!-- row=bootstrap grid align-items-center=lijnt tekst en foto verticaal perfect uit -->
+                        
+                        <!-- Linkerkolom: Tekst -->
+<!--COL LG dan 6/12-->  <div class="col-lg-6 text-center text-lg-start">
+                            <!-- col-lg-6=linker helft pc-scherm text-lg-start=pc links uitgelijnd -->
+                            <span class="text-primary small fw-bold">[ SOFTWARE DEVELOPER _ PORTFOLIO ]</span>
+                            <h1 class="display-4 fw-bold mt-2 text-primary">Verone de Vries</h1>
+                            <!-- display-4=grote titel text-primary=css overschrijft bootstrap -->
+                            <p class="lead my-3" style="color: var(--bs-body-color); opacity: 0.9;">Software Developer in opleiding (Niveau 4)</p>
+                            <!-- lead=grotere subtekst style=CSS overschrijft Bootstrap opacity=transparantie -->
+                        </div>
+            
+                        <!-- Rechterkolom: Profielfoto -->
+<!--COL LG dan 6/12-->  <div class="col-lg-6 mt-5 mt-lg-0">
+                            <!-- col-lg-6=rechterhelft pc-scherm mt-5=margin-top mobiel mt-lg-0=margin-top pc is 0 -->
+                            <div class="d-flex align-items-center justify-content-center rounded border border-tech" style="height: 300px; background-color: var(--bs-body-bg);">
+                                <!-- d-flex=Flexbox horizontaal align/justify=verticale en horizontale uitlijning bb-bt=rand style=CSS overschrijft Bootstrap -->
+                                <span class="fs-5 text-body opacity-75">[ profielfoto_verone ]</span>
+                                <!-- fs=font-size text-body=CSS overschrijft Bootstrap met bs-body-color opacity=75% sterkte -->
+                            </div>
+                        </div>
+                    </div> 
+                </div> 
+            </header>
+
+            <main>
+ <main class="py-5 bg-dark" style="border-top: 1px solid rgba(247, 244, 235, 0.15);">
+            <!-- py-5=padding boven/onder bg-dark=jouw zwarte achtergrond border-top=strakke rand -->
+            
+            <!-- Welkomstbericht -->
+            <div class="container mb-5 text-center text-lg-start">
+                <!-- container=automatische zijmarges text-lg-start=lijnt tekst links uit op pc -->
+                <div class="p-4 rounded border border-tech" style="background-color: var(--bs-dark);">
+                    <!-- border border-tech=crème rand background-color=jouw zwarte kleur -->
+                    <h2 class="h4 fw-bold text-primary mb-3">>_ Welkom_Bij_Masyntrix</h2>
+                    <p class="mb-0 text-body opacity-90">
+                        Welkom op mijn portfolio. Als IT-specialist in opleiding gebruik ik deze plek om mijn voortgang, code-omgevingen en netwerkprojecten te documenteren. Hieronder vind je een overzicht van de modules, scripts en infrastructuren waar ik momenteel aan werk of die ik al succesvol heb afgerond. Klik op een project voor de technische details.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3x3 Projecten Grid -->
+            <div class="container id="projecten"">
+                <h2 class="fw-bold mb-4 text-primary">>_ Project_Repository (09)</h2>
+                
+                <!-- row-cols-1=1 kolom op mobiel row-cols-md-2=2 kolommen op tablet row-cols-lg-3=3 kolommen op pc (3x3 grid) -->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    
+                    <!-- Kaart 1 -->
+                    <div class="col">
+                        <div class="card h-100 text-body bg-dark border-tech shadow">
+                            <!-- h-100=zorgt dat alle kaarten exact even hoog zijn border-tech=jouw dunne rand -->
+                            <img src="images/project1.png" class="card-img-top border-bottom border-tech" alt="Project 1" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                            <!-- card-img-top=afbeelding bovenin style=object-fit zorgt dat foto netjes schaalt zonder te vervormen -->
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">Netwerken</span>
+                                <h5 class="card-title fw-bold text-primary">Cisco IP-Subnetting</h5>
+                                <p class="card-text small text-body opacity-75">Het berekenen en ontwerpen van een efficiënt IP-schema voor een organisatie met meerdere afdelingen.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kaart 2 -->
+                    <div class="col">
+                        <div class="card h-100 text-body bg-dark border-tech shadow">
+                            <img src="images/project2.png" class="card-img-top border-bottom border-tech" alt="Project 2" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                            <div class="card-body">
+                                <span class="badge bg-primary text-dark mb-2">Scripting</span>
+                                <h5 class="card-title fw-bold text-primary">Automated Backup</h5>
+                                <p class="card-text small text-body opacity-75">Een automatiseringsscript dat dagelijks back-ups maakt van servers en deze versleuteld opslaat.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kaart 3 -->
+                    <div class="col">
+                        <div class="card h-100 text-body bg-dark border-tech shadow">
+                            <img src="images/project3.png" class="card-img-top border-bottom border-tech" alt="Project 3" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">Linux</span>
+                                <h5 class="card-title fw-bold text-primary">Ubuntu Server Setup</h5>
+                                <p class="card-text small text-body opacity-75">Het configureren van een headless Linux server inclusief SSH-beveiliging en Apache webserver.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kaart 4 -->
+                    <div class="col">
+                        <div class="card h-100 text-body bg-dark border-tech shadow">
+                            <img src="images/project4.png" class="card-img-top border-bottom border-tech" alt="Project 4" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">Virtualisatie</span>
+                                <h5 class="card-title fw-bold text-primary">Proxmox Hypervisor</h5>
+                                <p class="card-text small text-body opacity-75">Inrichten van een thuislab met virtuele machines en containers voor testdoeleinden.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kaart 5 -->
+                    <div class="col">
+                        <div class="card h-100 text-body bg-dark border-tech shadow">
+                            <img src="images/project5.png" class="card-img-top border-bottom border-tech" alt="Project 5" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                            <div class="card-body">
+                                <span class="badge bg-primary text-dark mb-2">Frontend</span>
+                                <h5 class="card-title fw-bold text-primary">Bootstrap Interface</h5>
+                                <p class="card-text small text-body opacity-75">Ontwikkeling van een responsive en toegankelijke gebruikersinterface (Webdesign Les 22).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kaart 6 -->
+                    <div class="col">
+                        <div class="card h-100 text-body bg-dark border-tech shadow">
+                            <img src="images/project6.png" class="card-img-top border-bottom border-tech" alt="Project 6" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">Security</span>
+                                <h5 class="card-title fw-bold text-primary">Firewall Richtlijnen</h5>
+                                <p class="card-text small text-body opacity-75">Het opstellen en implementeren van poort- en netwerkregels om dataverkeer te beschermen.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kaart 7 -->
+                    <div class="col">
+                        <div class="card h-100 text-body bg-dark border-tech shadow">
+                            <img src="images/project7.png" class="card-img-top border-bottom border-tech" alt="Project 7" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                            <div class="card-body">
+                                <span class="badge bg-primary text-dark mb-2">Databases</span>
+                                <h5 class="card-title fw-bold text-primary">MySQL Relaties</h5>
+                                <p class="card-text small text-body opacity-75">Ontwerpen van een relationele database-structuur met SQL-scripts voor data-opslag.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kaart 8 -->
+                    <div class="col">
+                        <div class="card h-100 text-body bg-dark border-tech shadow">
+                            <img src="images/project8.png" class="card-img-top border-bottom border-tech" alt="Project 8" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">Windows</span>
+                                <h5 class="card-title fw-bold text-primary">Active Directory Base</h5>
+                                <p class="card-text small text-body opacity-75">Het opzetten van een Windows Domain Controller met basis Group Policy Objects (GPOs).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kaart 9 -->
+                    <div class="col">
+                        <div class="card h-100 text-body bg-dark border-tech shadow">
+                            <img src="images/project9.png" class="card-img-top border-bottom border-tech" alt="Project 9" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                            <div class="card-body">
+                                <span class="badge bg-primary text-dark mb-2">Python</span>
+                                <h5 class="card-title fw-bold text-primary">Network Ping Scanner</h5>
+                                <p class="card-text small text-body opacity-75">Een kort Python-script dat actieve IP-adressen binnen een lokaal netwerk scant en logt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- Einde row -->
+            </div> <!-- Einde container -->
+        </main>
+            </main>
+
+
+            <!-- Footer -->
+            <footer class="py-4 bg-dark border-top border-tech text-center mt-auto">
+            <!-- py-4=onder/boven padding bg-dark=CSS overschrijft Bootstrap bb-bt=lijn mt-auto=margin-top-auto footer onderkant -->
+                <div class="container">
+                    <p class="mb-0 text-body opacity-50 small">
+                        <!-- margin-bottom=0 text-body=CSS overschrijft Bootstrap opacity=50% small=kleine tekst -->
+                        &copy; 2026 Masyntrix | Ontwikkeld door Verone de Vries
+                    </p>
+                    <p class="mb-0 mt-1 small" style="color: var(--bs-primary); font-size: 0.75rem;">
+                        <!-- margin-bottom=0 margin-top=1 small tekst style=CSS overschrijft Bootstrap fs=font-size meeschalend in rem -->
+                        [ status: under construction ]
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
