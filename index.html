@@ -38,73 +38,94 @@
 
             /* Bootstrap overschrijven met root i.p.v. .html werkt in elk doctype/ theme-dark ook in html-tag */
             :root, [data-bs-theme="dark"] {
-                --bs-body-bg: #0a1128;        
-                --bs-body-color: #f7f4eb;     
-                --bs-primary: #ff007f;        
-                --bs-secondary: #3f1a4d;      
-                --bs-dark: #05050a;           
+                /* Exacte kleuren overgenomen uit het Masyntrix logo */
+                --bs-body-bg: #7b2cbf;        /* De diepe, donkere blauw/zwarte basis */
+                --bs-body-color: #f7f4eb;     /* Jouw gekozen lichte crèmekleur voor tekst */
+                --bs-primary: #00d2ff;        /* Het felle neon-cyan/blauw van de linkerkant */
+                --bs-secondary: #b500ff;      /* Het felle neon-paars van de rechterkant */
+                --bs-dark: #050a18;           /* Iets lichtere donkere tint voor kaarten/navbar */
                 --bs-info: #7b2cbf;           
-                --bs-link-color: #ff007f;
-                --bs-link-hover-color: #7b2cbf;
+                --bs-link-color: #00d2ff;
+                --bs-link-hover-color: #b500ff;
             }
-
             .border-tech {
-                border: 1px solid rgba(247, 244, 235, 0.15); 
+                border: 1px solid var(--bs-primary); 
+                box-shadow: 0 0 15px rgba(0, 210, 255, 0.15), inset 0 0 15px rgba(181, 0, 255, 0.05);
+            }
+            .btn-outline-primary:hover {
+                background-color: var(--bs-primary);
+                color: var(--bs-body-bg);
+                box-shadow: 0 0 20px var(--bs-primary);
+            }
+            .navbar-nav .nav-link {
+                color: var(--bs-secondary) !important; /* #b500ff */
+                font-weight: bold;
+                transition: color 0.2s ease-in-out;
+            }
+            .navbar-nav .nav-link.active {
+                color: var(--bs-info) !important; /* #7b2cbf */
+                text-shadow: 0 0 10px rgba(123, 44, 191, 0.5); /* Geeft de actieve knop een subtiele glow */
+            }
+            .navbar-nav .nav-link:hover {
+                color: var(--bs-primary) !important; /* #00d2ff (neon-blauw) */
+                text-shadow: 0 0 10px var(--bs-primary);
             }
         </style>
     </head>
 
-    <!-- Body in container-->
+<!-- Body in container-->
     <body>
-        <div class="container-sm"> <!-- aparte div onder body: vanaf 576px 100% breed -->
-            
-<!-- Navigatie met hamburgermenu op mobiel -->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-tech px-3" aria-label="Hoofdmenu">
-                <!-- expand=lg-scherm horizontaal dark=(overschreven)kleur bb-bt=lijn padding-x=3 aria=screenreader -->
-                <a class="navbar-brand fw-bold text-primary" href="https://veronedevries.nl">[ Portfolio ]</a>
-                <!-- brand=grotere tekst bold=vet primary=overschreven -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Navigatiemenu in- of uitklappen">
-                    <!-- JavaScript-aansturing buttonclick=#navbarMenu open/dicht-->
-                    <span class="navbar-toggler-icon"></span>
-                    <!-- hamburgermenu icoon -->
-                </button>
-                <div class="collapse navbar-collapse" id="navbarMenu">
-                    <!-- collapse=uitklapbaar menu onder knop id= koppeling aan target -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- nav=zonder opsomming ms-auto=margin-start-auto rechts uitgelijnd -->
-                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                        <!-- actieve link met hover-effect -->
-                        <li class="nav-item"><a class="nav-link" href="overmij.html">Over mij</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
+        <div class="container-sm px-4 px-sm-0">
+        <!-- Tot 576px px-4 padding zijkanten, vanaf 576px (sm) zet px-sm-0 padding 0=volledige breedte -->
 
-<!-- Header -->
-            <header class="py-5 border-bottom border-tech" style="background-color: var(--bs-dark);">
-            <!-- py-5=boven/onder padding bb-bt=onderlijn style=CSS overschrijft Bootstrap -->
-                <div class="container my-5">
-                <!-- nested container header met daarbinnen row-cols -->
-                    <div class="row align-items-center">
-                    <!-- row=bootstrapgrid align-items-center=verticale gecentreerde uitlijning-->
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <!-- col-lg-6=op pc linkerhelft 6/12 voor titel text-lg-start=op pc links uitgelijnd -->
-                            <span class="text-primary small fw-bold">[ PORTFOLIO ]</span>
-                            <h1 class="display-4 fw-bold mt-2 text-primary">Verone de Vries</h1>
-                            <!-- display-4=grote titel text-primary=css overschrijft bootstrap -->
-                            <p class="lead my-3" style="color: var(--bs-body-color); opacity: 0.9;">Software Developer in opleiding (Niveau 4)</p>
-                            <!-- lead=grotere subtekst style=CSS overschrijft Bootstrap opacity=transparantie -->
+<!-- Header met navigatie, paginatitel -->
+            <header class="bg-dark border-bottom border-tech">
+
+                <!-- 1. Navigatie met hamburgermenu op mobiel -->
+                <nav class="navbar navbar-expand-lg navbar-dark border-bottom border-tech" aria-label="Hoofdmenu">
+                    <div class="container-fluid px-3">
+                    <!-- 100% binnen container-sm-->
+                        <a class="btn btn-outline-primary fw-bold" href="https://veronedevries.nl" role="button">[ veronedevries.nl ]</a>
+                        <!-- brand=styling logo, merknaam of titel -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Navigatiemenu in- of uitklappen">
+                        <!-- toggler=schakelaar van het type button collapse=uitklappen data-bs-target=id in list aria=screenreader -->
+                            <span class="navbar-toggler-icon"></span>
+                            <!-- icoon hamburger -->
+                        </button>
+                
+                        <div class="collapse navbar-collapse" id="navbarMenu">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="overmij.html">Over mij</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            </ul>
                         </div>
-                        <div class="col-lg-6 mt-5 mt-lg-0">
-                        <!-- col-lg-6=op pc rechterhelft 6/12 voor profielfoto mt-5=margin-top mobiel mt-lg-0=margin-top pc is 0 -->
+                    </div> 
+                </nav>
+
+                <div class="py-5 my-5">
+                <!-- padding=verticaal niveau 5 style= CSS overschrijving intern en bootstrap -->
+                    <div class="row align-items-center mx-0">
+                    <!-- row=rij kolommen, align-items-center=verticaal centreren, mx-0=geen horizontale padding -->
+                        <div class="col-lg-6 text-center text-lg-start px-3">
+                        <!-- col-lg-6=6 kolommen op pc, text-center=centreren, text-lg-start=links uitlijnen op pc, px-3=padding zijkanten -->
+                            <h1 class="display-4 fw-bold mt-2 text-info">PORTFOLIO</h1>
+                            <!-- display-4= grote tekst, fw-bold=vetgedrukt, mt-2=margin top 2, text-info=kleur -->
+                            <p class="lead my-3" style="color: var(--bs-body-color); opacity: 0.9;">VERONE DE VRIES</p>
+                            <p class="fw-bold mt-2 text-info"><em>Software Developer in opleiding (Niveau 4)</em></p>
+                            <!-- lead= grote tekst, my-3=margin verticaal, style= CSS overschrijving opacity=transparantie -->
+                        </div>
+                    
+                        <div class="col-lg-6 mt-5 mt-lg-0 px-3">
+                        <!-- col-lg-6=6 kolommen op pc, mt-5=margin top, mt-lg-0=geen margin top op pc, px-3=padding zijkanten -->
                             <div class="d-flex align-items-center justify-content-center rounded border border-tech" style="height: 300px; background-color: var(--bs-body-bg);">
-                                <!-- d-flex=Flexbox horizontaal align/justify=verticale en horizontale uitlijning bb-bt=rand style=CSS overschrijft Bootstrap -->
-                                <span class="fs-5 text-body opacity-75">[ profielfoto_verone ]</span>
-                                <!-- fs=font-size text-body=CSS overschrijft Bootstrap met bs-body-color opacity=75% sterkte -->
+                            <!-- d-flex=flexbox, align-items-center=verticaal centreren, justify-content-center=horizontaal centreren rounded=ronde hoeken style=CSS overschrijving -->
+                                <img src="images\profielfoto.jpg" class="w-100 h-100" alt="Profielfoto van Verone de Vries" style="object-fit: cover; object-position: center;">
+                                <!-- w-100=breedte 100%, h-100=hoogte 100%, object-fit=cover=afbeelding vullen, object-position=center=afbeelding centreren -->
                             </div>
                         </div>
                     </div> 
-                </div> 
+                </div>
             </header>
 
 <!--Main-->
@@ -113,115 +134,111 @@
                 <div class="container mb-5 text-center text-lg-start">
                 <!-- nested container voor main zonder row-cols -->
                     <div class="p-4 rounded border border-tech" style="background-color: var(--bs-dark);">
-                        <h2 class="h4 fw-bold text-primary mb-3">Welkom op mijn portfolio</h2>
-                        <p class="mb-0 opacity-90">
-                        Als IT-specialist in opleiding gebruik ik deze plek om mijn voortgang te documenteren.
-                        Hieronder vind je afbeeldingen en beschrijvingen van mijzelf, 
-                        mijn opleiding, hobby's en toekomstplannen. Klik op de afbeeldingen voor meer informatie. 
-                        </p>
+                        <h2 class="h2 fw-bold text-info mb-3">Welkom op mijn portfolio</h2>
+                        <h4 class="h4 fw-bold text-info mb-3">Overzicht van mijn projecten, vaardigheden en ervaringen</h4>
+                        <p class="mb-0 opacity-90">Deze pagina bevat afbeeldingen die een indruk geven van mijn interesses</p>
                     </div>
                 </div>
 
-    
                 <div class="container mt-5">
                 <!-- nested container voor 3x3 Grid met afbeeldingen cols-1 op mobiel en cols-lg-3 op pc -->
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 <!-- 1 -->  
                         <div class="col">
                             <div class="card h-100 bg-dark border-tech shadow">
-                                <img src="images/naam.png" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                                <img src="images\masyntrix.jpg" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
                                 <div class="card-body">
-                                    <span class="badge bg-primary text-dark mb-2">Categorie</span>
-                                    <h5 class="card-title fw-bold text-primary">Onderwerp</h5>
-                                    <p class="card-text small opacity-75">Toelichting</p>
+                                    <span class="badge bg-primary text-dark mb-2">Programming</span>
+                                    <h5 class="card-title fw-bold text-info">Front-end, back-end en smart things</h5>
+                                    <p class="card-text small opacity-75">Masyntrix | Websites, webapps & IoT</p>
                                 </div>
                             </div>
                         </div>
 <!-- 2 -->
                         <div class="col">
                             <div class="card h-100 bg-dark border-tech shadow">
-                                <img src="images/naam.png" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                                <img src="images\Boertange.jpg" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
                                 <div class="card-body">
-                                    <span class="badge bg-primary text-dark mb-2">Categorie</span>
-                                    <h5 class="card-title fw-bold text-primary">Onderwerp</h5>
-                                    <p class="card-text small opacity-75">Toelichting</p>
+                                    <span class="badge bg-primary text-dark mb-2">History</span>
+                                    <h5 class="card-title fw-bold text-info">Geschiedenis en cultuur</h5>
+                                    <p class="card-text small opacity-75">Vestingstad Boertange</p>
                                 </div>
                             </div>
                         </div>
 <!-- 3 -->
                         <div class="col">
                             <div class="card h-100 bg-dark border-tech shadow">
-                                <img src="images/naam.png" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                                <img src="images\verone.jpg" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
                                 <div class="card-body">
-                                    <span class="badge bg-primary text-dark mb-2">Categorie</span>
-                                    <h5 class="card-title fw-bold text-primary">Onderwerp</h5>
-                                    <p class="card-text small opacity-75">Toelichting</p>
+                                    <span class="badge bg-primary text-dark mb-2">Politics</span>
+                                    <h5 class="card-title fw-bold text-info">Provinciaal, landelijk en geopolitiek</h5>
+                                    <p class="card-text small opacity-75">Groene sociaal-democratische stroming</p>
                                 </div>
                             </div>
                         </div>
 <!-- 4 -->
                         <div class="col">
                             <div class="card h-100 bg-dark border-tech shadow">
-                                <img src="images/naam.png" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                                <img src="images\sneeuwruimen.JPG" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
                                 <div class="card-body">
-                                    <span class="badge bg-primary text-dark mb-2">Categorie</span>
-                                    <h5 class="card-title fw-bold text-primary">Onderwerp</h5>
-                                    <p class="card-text small opacity-75">Toelichting</p>
+                                    <span class="badge bg-primary text-dark mb-2">Season</span>
+                                    <h5 class="card-title fw-bold text-info">Witte Kersttijd</h5>
+                                    <p class="card-text small opacity-75">Twente</p>
                                 </div>
                             </div>
                         </div>
 <!-- 5 -->
                         <div class="col">
                             <div class="card h-100 bg-dark border-tech shadow">
-                                <img src="images/naam.png" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                                <img src="images\wandelen.jpg" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
                                 <div class="card-body">
-                                    <span class="badge bg-primary text-dark mb-2">Categorie</span>
-                                    <h5 class="card-title fw-bold text-primary">Onderwerp</h5>
-                                    <p class="card-text small opacity-75">Toelichting</p>
+                                    <span class="badge bg-primary text-dark mb-2">Nature</span>
+                                    <h5 class="card-title fw-bold text-info">Wandelingen en fietstochten</h5>
+                                    <p class="card-text small opacity-75">Nederland</p>
                                 </div>
                             </div>
                         </div>
 <!-- 6 -->
                         <div class="col">
                             <div class="card h-100 bg-dark border-tech shadow">
-                                <img src="images/naam.png" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                                <img src="images\landal.jpg" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
                                 <div class="card-body">
-                                    <span class="badge bg-primary text-dark mb-2">Categorie</span>
-                                    <h5 class="card-title fw-bold text-primary">Onderwerp</h5>
-                                    <p class="card-text small opacity-75">Toelichting</p>
+                                    <span class="badge bg-primary text-dark mb-2">Vacation</span>
+                                    <h5 class="card-title fw-bold text-info">Landal</h5>
+                                    <p class="card-text small opacity-75">Friesland, Groningen, Limburg, Duitsland</p>
                                 </div>
                             </div>
                         </div>
 <!-- 7 -->
                         <div class="col">
                             <div class="card h-100 bg-dark border-tech shadow">
-                                <img src="images/naam.png" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                                <img src="images\airhockey.JPG" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
                                 <div class="card-body">
-                                    <span class="badge bg-primary text-dark mb-2">Categorie</span>
-                                    <h5 class="card-title fw-bold text-primary">Onderwerp</h5>
-                                    <p class="card-text small opacity-75">Toelichting</p>
+                                    <span class="badge bg-primary text-dark mb-2">Arcade</span>
+                                    <h5 class="card-title fw-bold text-info">Airhockey</h5>
+                                    <p class="card-text small opacity-75">Vakantie</p>
                                 </div>
                             </div>
                         </div>
 <!-- 8 -->
                         <div class="col">
                             <div class="card h-100 bg-dark border-tech shadow">
-                                <img src="images/naam.png" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                                <img src="images\Dazzle.jpeg" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
                                 <div class="card-body">
-                                    <span class="badge bg-primary text-dark mb-2">Categorie</span>
-                                    <h5 class="card-title fw-bold text-primary">Onderwerp</h5>
-                                    <p class="card-text small opacity-75">Toelichting</p>
+                                    <span class="badge bg-primary text-dark mb-2">Pets</span>
+                                    <h5 class="card-title fw-bold text-info">Ierse setter</h5>
+                                    <p class="card-text small opacity-75">Dazzle</p>
                                 </div>
                             </div>
                         </div>
 <!-- 9 -->
                         <div class="col">
                             <div class="card h-100 bg-dark border-tech shadow">
-                                <img src="images/naam.png" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
+                                <img src="images/Lola.JPG" class="card-img-top border-bottom border-tech" alt="Beschrijving" style="height: 180px; object-fit: cover; background-color: var(--bs-body-bg);">
                                 <div class="card-body">
-                                    <span class="badge bg-primary text-dark mb-2">Categorie</span>
-                                    <h5 class="card-title fw-bold text-primary">Onderwerp</h5>
-                                    <p class="card-text small opacity-75">Toelichting</p>
+                                    <span class="badge bg-primary text-dark mb-2">Pets</span>
+                                    <h5 class="card-title fw-bold text-info">Poezen</h5>
+                                    <p class="card-text small opacity-75">Lapjeskat Lola</p>
                                 </div>
                             </div>
                         </div>
@@ -231,18 +248,22 @@
         
 <!-- Footer -->
             <footer class="py-4 bg-dark border-top border-tech text-center mt-auto">
-            <!-- py-4=onder/boven padding bg-dark=CSS overschrijft Bootstrap bb-bt=lijn mt-auto=margin-top-auto footer onderkant -->
-                <div class="container">
-                <!-- container voor footer zonder row-cols -->
-                    <p class="mb-0 text-body opacity-50 small">
-                        <!-- margin-bottom=0 text-body=CSS overschrijft Bootstrap opacity=50% small=kleine tekst -->
-                        &copy; 2026 Masyntrix | Ontwikkeld door Verone de Vries
-                    </p>
-                    <p class="mb-0 mt-1 small" style="color: var(--bs-primary); font-size: 0.75rem;">
-                        <!-- margin-bottom=0 margin-top=1 small tekst style=CSS overschrijft Bootstrap fs=font-size meeschalend in rem -->
-                        [ status: under construction ]
-                    </p>
+            <!-- py-4=onder/boven padding bg-dark=achtergrondkleur border-top=lijn bovenkant mt-auto=footer onderkant -->
+
+                <div class="mb-2">
+                    <img src="images\masyntrix.jpg" alt="Masyntrix mini logo" style="height: 30px; width: auto; opacity: 0.8;">
+                    <!-- mb-2=margin bottom height=vaste hoogte opacity=aangepast aan achtergrond -->
                 </div>
+                
+                <p class="mb-0 text-body opacity-50 small">
+                <!-- margin-bottom=0 text-body=standaard tekstkleur opacity=50% small=kleine tekst -->
+                &copy; 2026 Masyntrix | Ontwikkeld door Verone de Vries
+                </p>
+    
+                <p class="mb-0 mt-1 small" style="color: var(--bs-primary); font-size: 0.75rem;">
+                <!-- margin-bottom=0 margin-top=1 small tekst style=CSS overschrijft Bootstrap fs=font-size meeschalend in rem -->
+                [ status: under construction ]
+                </p>
             </footer>
         </div>
     </body>
