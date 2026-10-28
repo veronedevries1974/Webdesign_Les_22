@@ -38,32 +38,54 @@
 
             /* Bootstrap overschrijven met root i.p.v. .html werkt in elk doctype/ theme-dark ook in html-tag */
             :root, [data-bs-theme="dark"] {
-                --bs-body-bg: #0a1128;        
+                --bs-body-bg: #7b2cbf;        
                 --bs-body-color: #f7f4eb;     
                 --bs-primary: #ff007f;        
                 --bs-secondary: #3f1a4d;      
                 --bs-dark: #05050a;           
                 --bs-info: #7b2cbf;           
-                --bs-link-color: #ff007f;
-                --bs-link-hover-color: #7b2cbf;
+                --bs-link-color: #7b2cbf;
+                --bs-link-hover-color: #f7f4eb;
             }
 
+            /* Styling navigatie */
+            .navbar-dark .navbar-nav .nav-link {
+                color: var(--bs-info) !important;
+            }
+            .navbar-dark .navbar-nav .nav-link:hover,
+            .navbar-dark .navbar-nav .nav-link:focus {
+                opacity: 1 !important; 
+                color: #00f0ff !important; 
+                text-shadow: 0 0 10px rgba(0, 240, 255, 0.6); 
+                transition: all 0.3s ease; 
+            }
+            .navbar-dark .navbar-nav .nav-link.active {
+                color: #00f0ff !important;
+                text-decoration: underline;
+                text-underline-offset: 5px; 
+            }
+            .navbar-brand:hover {
+                opacity: 1 !important; 
+                color: #00f0ff !important; 
+                text-shadow: 0 0 10px rgba(0, 240, 255, 0.6); 
+                transition: all 0.3s ease; 
+            }
+            /* Styling randen */
             .border-tech {
                 border: 1px solid rgba(247, 244, 235, 0.15); 
             }
         </style>
-    </head>
 
-    <!-- Body in container-->
+<!-- Body in container-->
     <body>
         <div class="container-sm"> <!-- aparte div onder body: vanaf 576px 100% breed -->
             
 <!-- Navigatie met hamburgermenu op mobiel -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-tech px-3" aria-label="Hoofdmenu">
                 <!-- expand=lg-scherm horizontaal dark=(overschreven)kleur bb-bt=lijn padding-x=3 aria=screenreader -->
-                <a class="navbar-brand fw-bold text-primary" href="https://veronedevries.nl">[ Portfolio ]</a>
-                <!-- brand=grotere tekst bold=vet primary=overschreven -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Navigatiemenu in- of uitklappen">
+                <a class="navbar-brand fw-bold" style="color: var(--bs-info); opacity: 0.9;" href="https://veronedevries.nl">[ veronedevries.nl ]</a>
+                <!-- brand=grotere tekst bold=vet info=overschreven -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" style="color: var(--bs-info); opacity: 0.9;" aria-controls="navbarMenu" aria-expanded="false" aria-label="Navigatiemenu in- of uitklappen">
                     <!-- JavaScript-aansturing buttonclick=#navbarMenu open/dicht-->
                     <span class="navbar-toggler-icon"></span>
                     <!-- hamburgermenu icoon -->
@@ -73,7 +95,6 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- nav=zonder opsomming ms-auto=margin-start-auto rechts uitgelijnd -->
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <!-- actieve link met hover-effect -->
                         <li class="nav-item"><a class="nav-link" href="overmij.html">Over mij</a></li>
                         <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
                     </ul>
@@ -89,96 +110,85 @@
                     <!-- row=bootstrapgrid align-items-center=verticale gecentreerde uitlijning-->
                         <div class="col-lg-6 text-center text-lg-start">
                             <!-- col-lg-6=op pc linkerhelft 6/12 voor titel text-lg-start=op pc links uitgelijnd -->
-                            <span class="text-primary small fw-bold">[ PORTFOLIO ]</span>
-                            <h1 class="display-4 fw-bold mt-2 text-primary">Verone de Vries</h1>
-                            <!-- display-4=grote titel text-primary=css overschrijft bootstrap -->
-                            <p class="lead my-3" style="color: var(--bs-body-color); opacity: 0.9;">Software Developer in opleiding (Niveau 4)</p>
+                            <span class="text-info small fw-bold">[ PORTFOLIO ]</span>
+                            <h1 class="display-4 fw-bold mt-2 text-info">Verone de Vries</h1>
+                            <!-- display-4=grote titel text-info=css overschrijft bootstrap -->
+                            <p class="lead my-3" style="color: var(--bs-info); opacity: 0.9;">Software Developer in opleiding</p>
+                            <p class="small text-info"> (independent student)</p>
                             <!-- lead=grotere subtekst style=CSS overschrijft Bootstrap opacity=transparantie -->
                         </div>
-                        <div class="col-lg-6 mt-5 mt-lg-0">
-                        <!-- col-lg-6=op pc rechterhelft 6/12 voor profielfoto mt-5=margin-top mobiel mt-lg-0=margin-top pc is 0 -->
-                            <div class="d-flex align-items-center justify-content-center rounded border border-tech" style="height: 300px; background-color: var(--bs-body-bg);">
-                                <!-- d-flex=Flexbox horizontaal align/justify=verticale en horizontale uitlijning bb-bt=rand style=CSS overschrijft Bootstrap -->
-                                <span class="fs-5 text-body opacity-75">[ profielfoto_verone ]</span>
-                                <!-- fs=font-size text-body=CSS overschrijft Bootstrap met bs-body-color opacity=75% sterkte -->
-                            </div>
+                       
+                        <div class="col-lg-6 mt-5 mt-lg-0 d-flex justify-content-center"> 
+                        <!-- d-flex en justify-content-center=midden gecentreerd -->
+                            <div class="d-flex align-items-center justify-content-center rounded border border-tech" style="width: 300px; height: 300px; background-color: var(--bs-body-bg);"> 
+                                <img src="images\profielfoto.jpg" alt="Profielfoto Verone de Vries" class="w-100 h-100 object-fit-cover rounded fs-5 text-body opacity-75"> 
+                            </div> 
                         </div>
-                    </div> 
+                    </div>
                 </div> 
             </header>
-
 <!--Main-->
             <main class="py-5 bg-dark" style="border-top: 1px solid rgba(247, 244, 235, 0.15);">
             <!-- padding=verticaal niveau 5 style= CSS op element is overschrijving intern en bootstrap-->
                 <div class="container mb-5 text-center text-lg-start">
                 <!-- nested container voor main zonder row-cols -->
                     <div class="p-4 rounded border border-tech" style="background-color: var(--bs-dark);">
-                        <h2 class="h4 fw-bold text-primary mb-3">Welkom op mijn portfolio</h2>
-                        <p class="mb-0 opacity-90">
-                        Als IT-specialist in opleiding gebruik ik deze plek om mijn voortgang te documenteren.
-                        Hieronder vind je afbeeldingen en beschrijvingen van mijzelf, 
-                        mijn opleiding, hobby's en toekomstplannen. Klik op de afbeeldingen voor meer informatie. 
-                        </p>
+                        <h2 class="h2 fw-bold text-info mb-3">Contactformulier</h2>
+                        <p class="mb-0 opacity-90" style="color: var(--bs-info); opacity: 0.9;">Heb je een vraag of wil je samenwerken?</p>
+                        <p class="mb-0 opacity-90" style="color: var(--bs-info); opacity: 0.9;">Stuur een bericht.</p>
                     </div>
                 </div>
 
-    
-            <div class="container my-5" style="max-width: 600px;">
-                <!-- container=automatische zijmarges max-width=zorgt dat het formulier niet te breed wordt op pc -->
-                
-                <h2 class="text-center fw-bold mb-4 text-primary">>_ Contact_Opnemen</h2>
-                <!-- text-primary=jouw neon roze kleur -->
-                <p class="text-center text-body opacity-75 mb-5 small">> Heb je een vraag of wil je samenwerken? Stuur een bericht.</p>
-
-                <form action="#" method="POST">
+<!-- Contactformulier -->
+                <div class="container my-5" style="max-width: 600px;">
+                    <form action="invoer.php" method="POST">
                     
-                    <!-- Veld 1: Naam -->
-                    <div class="mb-4">
-                        <label for="naam" class="form-label text-primary small fw-bold">[ 01. NAAM ]</label>
-                        <input type="text" class="form-control bg-body border-tech text-cream py-2" id="naam" name="naam" placeholder="Vul je naam in" required>
-                        <!-- form-control=bootstrap styling bg-body=jouw navy achtergrond text-cream=jouw tekstkleur required=verplicht veld -->
-                    </div>
+                        <!-- Naam -->
+                        <div class="mb-4">
+                            <label for="naam" class="form-label text-primary small fw-bold">[NAAM]</label>
+                            <input type="text" class="form-control bg-body border-tech text-cream py-2" id="naam" name="naam_invoer" placeholder="Vul je naam in" required>
+                        </div>
 
-                    <!-- Veld 2: E-mailadres -->
-                    <div class="mb-4">
-                        <label for="email" class="form-label text-primary small fw-bold">[ 02. E-MAILADRES ]</label>
-                        <input type="email" class="form-control bg-body border-tech text-cream py-2" id="email" name="email" placeholder="naam@voorbeeld.nl" required>
-                    </div>
+                        <!-- E-mailadres -->
+                        <div class="mb-4">
+                            <label for="email" class="form-label text-primary small fw-bold">[E-MAILADRES]</label>
+                            <input type="email" class="form-control bg-body border-tech text-cream py-2" id="email" name="email_invoer" placeholder="naam@voorbeeld.nl" required>
+                        </div>
 
-                    <!-- Veld 3: Bericht -->
-                    <div class="mb-4">
-                        <label for="bericht" class="form-label text-primary small fw-bold">[ 03. BERICHT ]</label>
-                        <textarea class="form-control bg-body border-tech text-cream py-2" id="bericht" name="bericht" rows="5" placeholder="Typ hier je bericht..." required></textarea>
-                        <!-- rows=5 bepaalt de starthoogte van het tekstvak -->
-                    </div>
+                        <!-- Bericht -->
+                        <div class="mb-4">
+                            <label for="bericht" class="form-label text-primary small fw-bold">[BERICHT]</label>
+                            <textarea class="form-control bg-body border-tech text-cream py-2" id="bericht" name="bericht_invoer" rows="5" placeholder="Typ hier je bericht..." required></textarea>
+                        </div>
 
-                    <!-- Verzendknop -->
-                    <div class="text-end pt-2">
-                        <button type="submit" class="btn btn-outline-primary px-4 py-2fw-bold">
-                            Execute_Send()_
-                        </button>
-                        <!-- btn-outline-primary=jouw roze rand/hover px-4=bredere knop -->
-                    </div>
-
-                </form>
-
-            </div>
-        </main>
+                        <!-- Verzendknop -->
+                        <div class="text-end pt-2">
+                            <button type="submit" class="btn btn-outline-primary px-4 py-2fw-bold">
+                            [VERZENDEN]
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </main>
 
             <!-- Footer -->
             <footer class="py-4 bg-dark border-top border-tech text-center mt-auto">
-            <!-- py-4=onder/boven padding bg-dark=CSS overschrijft Bootstrap bb-bt=lijn mt-auto=margin-top-auto footer onderkant -->
-                <div class="container">
-                <!-- container voor footer zonder row-cols -->
-                    <p class="mb-0 text-body opacity-50 small">
-                        <!-- margin-bottom=0 text-body=CSS overschrijft Bootstrap opacity=50% small=kleine tekst -->
-                        &copy; 2026 Masyntrix | Ontwikkeld door Verone de Vries
-                    </p>
-                    <p class="mb-0 mt-1 small" style="color: var(--bs-primary); font-size: 0.75rem;">
-                        <!-- margin-bottom=0 margin-top=1 small tekst style=CSS overschrijft Bootstrap fs=font-size meeschalend in rem -->
-                        [ status: under construction ]
-                    </p>
+            <!-- py-4=onder/boven padding bg-dark=achtergrondkleur border-top=lijn bovenkant mt-auto=footer onderkant -->
+
+                <div class="mb-2">
+                    <img src="images\masyntrix.jpg" alt="Masyntrix mini logo" style="height: 30px; width: auto; opacity: 0.8;">
+                    <!-- mb-2=margin bottom height=vaste hoogte opacity=aangepast aan achtergrond -->
                 </div>
+                
+                <p class="mb-0 text-info opacity-50 small">
+                <!-- margin-bottom=0 text-body=standaard tekstkleur opacity=50% small=kleine tekst -->
+                &copy; 2026 Masyntrix | Ontwikkeld door Verone de Vries
+                </p>
+    
+                <p class="mb-0 mt-1 small" style="color: var(--bs-info); opacity: 0.9; font-size: 0.75rem;">
+                <!-- margin-bottom=0 margin-top=1 small tekst style=CSS overschrijft Bootstrap fs=font-size meeschalend in rem -->
+                [ status: under construction ]
+                </p>
             </footer>
         </div>
     </body>
